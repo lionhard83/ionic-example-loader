@@ -4,14 +4,34 @@
       Tab 1
     </ion-title>
   </ion-toolbar>
+  <ion-searchbar [(ngModel)]='textToSearch'></ion-searchbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+<!--
+  <ion-button expand="round" color="success" (click)="showModal()">
+    Aggiungi un nuovo articolo
+  </ion-button> -->
+  <ion-button (click)='searchTo()'>Search</ion-button>
+  <ion-button (click)='presentActionSheet()'>By Category</ion-button>
+  <app-explore-container *ngIf='!articles'></app-explore-container>
+  <p *ngIf='articles?.length === 0'>Non ho trovato risultati</p>
+  <ion-card *ngFor='let article of articles'>
+    <img [src]='article.urlToImage' />
+    <ion-card-header>
+      <ion-card-subtitle>{{article.source?.name || 'source name'}}</ion-card-subtitle>
+      <ion-card-title>{{article.title}}</ion-card-title>
+    </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-card-content>
+     {{article.content}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

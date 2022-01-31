@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic Modal</ion-title>
+    <ion-icon name='close-circle' color="dark" (click)='dismiss()' style='float: right;'></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Title</ion-label>
+        <ion-input formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Author</ion-label>
+        <ion-input formControlName="author"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Url</ion-label>
+        <ion-input formControlName="urlToImage"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Content</ion-label>
+        <ion-input formControlName="content"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" color='primary'>Save</ion-button>
+  </form>
+</ion-content>
